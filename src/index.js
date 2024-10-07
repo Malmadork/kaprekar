@@ -1,13 +1,26 @@
+/**
+ * Usage: 
+ * 
+ * kaprekar.routine(num)
+ * 
+ * @param num number with at most 4 digits and at least 2 different digits
+ * @returns Number of Iterations of Kaprekar's routine, as well as the equation
+ *          for each step of the routine. 
+ * 
+ */
 var kaprekar = {
   constant: 6174,
   invalidNums: [1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999, 0],
   isValid: (num) => {
     var valid = true;
+    if(num.toString().split('').length > 4) return false;
+
     kaprekar.invalidNums.forEach(i => {
       if(num - i == 0) {
         valid = false
       }
-    })
+    });
+
     return valid;
   },
   arrangeAscending: (num, padding=true) => {
@@ -48,36 +61,33 @@ var kaprekar = {
   },
   routine: (num) => {
     if(!kaprekar.isValid(num)) {
-      console.error("'" + num + "' is not a valid number for Kaprekar's routine! Requires at least two different digits.") 
+      console.error("'" + num + "' is not a valid number for Kaprekar's routine. Number must have at most four digits with at least two of them being different values.") 
     }
     else {
       
       var desc = Number(kaprekar.arrangeDescending(num).join(''));
       var asc  = Number(kaprekar.arrangeAscending(num).join(''));
-      //console.log(desc)
       
-      var iterations = 0;
+      
       var result = 0;
-      var output = "["
-      while(result != 6174 && iterations < 8) {
-        result = desc - asc;
-        iterations++;
+      var output = {
+        iterations: 0,
+        steps: []
+      };
 
-        if(iterations > 1) {output += "  "}
-        else output += " ";
-        output += kaprekar.arrangeDescending(desc).join('') + " - " + kaprekar.arrangeAscending(asc).join('') + " = " + result;
-        if(result != 6174) output += "\n";
+
+      while(result != 6174 && output.iterations < 8) {
+        result = desc - asc;
+        output.iterations++;
+
+        output.steps.push("" + kaprekar.arrangeDescending(desc).join('') + " - " + kaprekar.arrangeAscending(asc).join('') + " = " + result);
         
         desc = Number(kaprekar.arrangeDescending(result).join(''));
         asc  = Number(kaprekar.arrangeAscending(result).join(''));
 
-        
-        
       }
-      output += " ]" + `\n`;
-      console.log(output)
-
-      console.log("Iterations: " + iterations);
+      
+      return output;
 
     }
     

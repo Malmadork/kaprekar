@@ -1,0 +1,20 @@
+{
+  "name": "kaprekar",
+  "version": "1.0.0",
+  "description": "Analyzing Kaprekar's Constant and Creating Data Visualization of Kaprekar Routines",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+
+  },
+  "keywords": [
+    "kaprekar",
+    "kaprekar-number",
+    "kaprekar-routine",
+    "mathematics"
+  ],
+  "author": "Malmadork",
+  "license": "ISC"
+}
