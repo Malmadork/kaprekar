@@ -68,13 +68,11 @@ var kaprekar = {
       var desc = Number(kaprekar.arrangeDescending(num).join(''));
       var asc  = Number(kaprekar.arrangeAscending(num).join(''));
       
-      
       var result = 0;
       var output = {
         iterations: 0,
         steps: []
       };
-
 
       while(result != 6174 && output.iterations < 8) {
         result = desc - asc;

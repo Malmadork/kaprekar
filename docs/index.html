@@ -5,8 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaprekar's Constant</title>
     <link rel="icon" href="./static/images/32.png">
+    <link rel="stylesheet" href="./static/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="./static/js/jquery-3.7.1.min.js"></script>
+    <script src="./static/js/script.js"></script>
   </head>
-  <body>
-    Coming Soon!
+  <body data-theme="dark">
+    <main>
+      <div class="center" data-theme="dark">
+        
+        <nav class="header" data-theme="dark">
+          
+          <div class="page-title" data-theme="dark"><h1>Kaprekar's Constant</h1></div>
+          <div style="flex-grow:1"></div>
+          <div class="page-links" data-theme="dark"><p>Home</p></div>
+          <div class="page-links" data-theme="dark" onclick="window.location = './simulations.html'"><p>Simulations</p></div>
+
+        </nav>
+        <div class="content" data-theme="dark">
+          <section>
+            <h2>What is Kaprekar's Constant?</h2>
+            <hr>
+            <p>Named after the Indian mathematician D. R. Kaprekar, the number
+              <b>6174</b> is known as Kaprekar's Constant. Kaprekar found that 
+              by recursively sorting and subtracting four-digit numbers, solutions will 
+              converge upon the number 6174.
+            </p>
+          </section>
+          <section>
+            <h2>Performing Kaprekar's Routine</h2>
+            <hr>
+            <p>The algorithm is as follows:</p>
+            <ol>
+              <li>Take any four-digit number, using at least two distinct digits (leading zeros are allowed).</li>
+              <li>Arrange the digits in both descending and ascending order to get two four digit numbers, adding leading zeros if necessary.</li>
+              <li>Subtract the smaller number from the bigger number.</li>
+              <li>If the result is not 6174, go back to step 2 and repeat this process.</li>
+            </ol>
+            <p>The only four-digit numbers for which Kaprekar's routine does not reach 6174 are: 
+               0000, 1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999. 
+            </p>
+            <h3>Example:</h3>
+            <p>
+              Starting with the number 8991:
+            </p>
+            <ul style="list-style-type: none;">
+              <li>9981 - 1899 = 8082</li>
+              <li>8820 - 0288 = 8532</li>
+              <li>8532 - 2358 = 6174</li>
+            </ul>
+            <h2>Running Kaprekar's Routine</h2>
+            <hr>
+            <p>This repository contains a <a href="../src/index.js">script</a> for running Kaprekar's routine. Usage is as follows:</p>
+            <code>kaprekar.routine( number );</code>
+            <p>This function will return an object with the number of iterations and steps used in the routine.</p>
+          </section>
+        </div>
+
+      </div>
+    </main>
+    <div class="light-dark-switch">
+      <div class="icon sun" data-active="false"><img type="image/svg+xml" src="./static/images/sun.svg" class="svg"></div>
+      <div class="icon moon" data-active="true"><img type="image/svg+xml" src="./static/images/moon.svg" class="svg"></div>
+    </div>
   </body>
 </html>
