@@ -24,45 +24,48 @@
           <div class="page-links" data-theme="dark" onclick="window.location = './simulations.html'"><p>Simulations</p></div>
 
         </nav>
-        <div class="content" data-theme="dark">
-          <section>
-            <h2>What is Kaprekar's Constant?</h2>
-            <hr>
-            <p>Named after the Indian mathematician D. R. Kaprekar, the number
-              <b>6174</b> is known as Kaprekar's Constant. Kaprekar found that 
-              by recursively sorting and subtracting four-digit numbers, solutions will 
-              converge upon the number 6174.
-            </p>
-          </section>
-          <section>
-            <h2>Performing Kaprekar's Routine</h2>
-            <hr>
-            <p>The algorithm is as follows:</p>
-            <ol>
-              <li>Take any four-digit number, using at least two distinct digits (leading zeros are allowed).</li>
-              <li>Arrange the digits in both descending and ascending order to get two four digit numbers, adding leading zeros if necessary.</li>
-              <li>Subtract the smaller number from the bigger number.</li>
-              <li>If the result is not 6174, go back to step 2 and repeat this process.</li>
-            </ol>
-            <p>The only four-digit numbers for which Kaprekar's routine does not reach 6174 are: 
-               0000, 1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999. 
-            </p>
-            <h3>Example:</h3>
-            <p>
-              Starting with the number 8991:
-            </p>
-            <ul style="list-style-type: none;">
-              <li>9981 - 1899 = 8082</li>
-              <li>8820 - 0288 = 8532</li>
-              <li>8532 - 2358 = 6174</li>
-            </ul>
-            <h2>Running Kaprekar's Routine</h2>
-            <hr>
-            <p>This repository contains a <a href="../src/index.js">script</a> for running Kaprekar's routine. Usage is as follows:</p>
-            <code>kaprekar.routine( number );</code>
-            <p>This function will return an object with the number of iterations and steps used in the routine.</p>
-          </section>
+        <div class="content-wrapper">
+          <div class="content" data-theme="dark">
+            <section>
+              <h2>What is Kaprekar's Constant?</h2>
+              <hr>
+              <p>Named after the Indian mathematician D. R. Kaprekar, the number
+                <b>6174</b> is known as Kaprekar's Constant. Kaprekar found that 
+                by recursively sorting and subtracting four-digit numbers, solutions will 
+                converge upon the number 6174.
+              </p>
+            </section>
+            <section>
+              <h2>Performing Kaprekar's Routine</h2>
+              <hr>
+              <p>The algorithm is as follows:</p>
+              <ol>
+                <li>Take any four-digit number, using at least two distinct digits (leading zeros are allowed).</li>
+                <li>Arrange the digits in both descending and ascending order to get two four digit numbers, adding leading zeros if necessary.</li>
+                <li>Subtract the smaller number from the bigger number.</li>
+                <li>If the result is not 6174, go back to step 2 and repeat this process.</li>
+              </ol>
+              <p>The only four-digit numbers for which Kaprekar's routine does not reach 6174 are: 
+                 0000, 1111, 2222, 3333, 4444, 5555, 6666, 7777, 8888, 9999. 
+              </p>
+              <h3>Example:</h3>
+              <p>
+                Starting with the number 8991:
+              </p>
+              <ul style="list-style-type: none;">
+                <li>9981 - 1899 = 8082</li>
+                <li>8820 - 0288 = 8532</li>
+                <li>8532 - 2358 = 6174</li>
+              </ul>
+              <h2>Running Kaprekar's Routine</h2>
+              <hr>
+              <p>This repository contains a <a href="../src/index.js">script</a> for running Kaprekar's routine. Usage is as follows:</p>
+              <code>kaprekar.routine( number );</code>
+              <p>This function will return an object with the number of iterations and steps used in the routine.</p>
+            </section>
+          </div>
         </div>
+        
 
       </div>
     </main>
