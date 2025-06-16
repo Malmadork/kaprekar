@@ -12,4 +12,4 @@ The only exception to this rule is that four digit numbers with the same number 
 This repository holds a JS script for running Kaprekar's Routine as well as pages for data visualization and distribution information.
 
 # Github Pages
-Not up as of the moment.
+[https://malmadork.github.io/kaprekar/](https://malmadork.github.io/kaprekar/)
