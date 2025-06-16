@@ -9,8 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="./static/js/jquery-3.7.1.min.js"></script>
-    <script src="./static/js/script.js"></script>
+    <script language="javascript" type="text/javascript" src="./static/js/jquery-3.7.1.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdn.plot.ly/plotly-3.0.1.min.js" charset="utf-8"></script>
+    <script language="javascript" type="text/javascript" src="../src/index.js"></script>
+    <script language="javascript" type="text/javascript" src="./static/js/script.js"></script>
   </head>
   <body data-theme="dark">
     <main>
@@ -25,9 +27,76 @@
 
         </nav>
         <div class="content" data-theme="dark">
-          <section>
+          <!-- <section>
             <h2>Simulations</h2>
             <hr>
+            <div class="simulationsGrid">
+              <div class="simulationsLeft">
+                <p>Enter a four-digit number:</p>
+                <input type="text" class="simulationInput" maxlength="4">
+              </div>
+              <div class="simulationsRight">
+                <textarea readonly class="simulationsOutput">Output will be sent here.</textarea>
+              </div>
+            </div>
+            <br>
+          </section> -->
+          <section>
+            
+            <h2>Data</h2>
+            <hr>
+            <p>The chart below displays data calculated from running Kaprekar's Routine. The routine was run for each number from 0001 to 9998, calculating the number of iterations it takes to reach Kaprekar's number. This histogram plots the total count of all four-digit numbers with how many iterations it took to achieve Kaprekar's number.  </p>
+            <div id="kaprekarData"></div>
+            <script>
+              // Plotly.newPlot("kaprekarData", {
+              //     "data": [
+              //       { 
+              //         "x": ["0", "1", "2", "3", "4", "5", "6", "7"], 
+              //         "y": [0, 1, 2, 3, 3, 2, 1, 0], 
+              //         "type": 'histogram' 
+              //       }
+              //     ],
+              //     "layout": { "width": 600, "height": 400},
+                  
+              // })
+              var x = ["1 Iteration", "2 Iterations", 
+                       "3 Iterations", "4 Iterations", "5 Iterations",
+                       "6 Iterations", "7 Iterations"]
+              var y = [384, 576, 2400, 1272, 1518, 1656, 2184]
+              //"1":384,"2":576,"3":2400,"4":1272,"5":1518,"6":1656,"7":2184
+
+              var data = [
+                {
+                  histfunc: "sum",
+                  y: y,
+                  x: x,
+                  type: "histogram",
+                  name: "sum"
+                }
+              ]
+
+              Plotly.newPlot('kaprekarData', data, {
+                paper_bgcolor: "rgba(0,0,0,0", //background color of the chart container space
+                plot_bgcolor: "rgba(0,0,0,0)", //background color of plot area
+                xaxis: {
+                  color: 'white',
+                  fixedrange: true
+                },
+                yaxis: {
+                  color: 'white',
+                  fixedrange: true
+                }
+              }, {
+                scrollZoom: false,
+                editable: false,
+                displayModeBar: false,
+                responsive: true,
+                dragmode: false
+              });
+              
+              
+            </script>
+
           </section>
         </div>
 
